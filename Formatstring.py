@@ -22,7 +22,7 @@ def space(a):
 def formatting():
     Firstname = input("Enter your firstname\n")
     Age = int(input("Enter your age\n")) 
-    print ("My name is {}.\nI am {} years old.".format(Firstname,Age))
+    print ("My name is {Firstname}.\nI am {Age} years old.".format(Firstname,Age))
 
 def padding(a):
     print ('{:>10}'.format('test'))
