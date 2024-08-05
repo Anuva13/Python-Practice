@@ -41,6 +41,7 @@ def concatenate(List_1,List_2):
 def addlistelements(List_5,List_6,l5,l6):
     i=0
     j=0
+    new_List3 = []
     while (i<l5 or j<l6):
         new_List3.append(List_5[i] + List_6[j])
         i=i+1
