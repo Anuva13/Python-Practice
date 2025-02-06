@@ -2,11 +2,6 @@ import pandas as pd
 import importlib.util
 
 def main():
-
-    if importlib.util.find_spec("openpyxl") is not None:
-        print("openpyxl is installed")
-    else:
-        print("openpyxl is NOT installed")
     
     readcsv()
     parameters()
