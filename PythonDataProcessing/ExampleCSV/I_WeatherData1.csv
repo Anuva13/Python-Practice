@@ -1,0 +1,16 @@
+date,weather,city
+2018-03-04,sunny,sydney
+2018-03-05,nan,melbourne
+2018-03-06,rain,perth
+2018-03-07,cloudy,brisbane
+2018-03-08,sunny,adelaide
+2018-03-09,foggy,hobart
+2018-03-10,rain,darwin
+2018-03-11,stormy,canberra
+2018-03-12,sunny,sydney
+2018-03-13,rain,melbourne
+2018-03-14,windy,perth
+2018-03-15,cloudy,brisbane
+2018-03-16,foggy,adelaide
+2018-03-17,snowy,hobart
+2018-03-18,rain,darwin
