@@ -32,7 +32,7 @@ def main():
     df['rand_col_4'] = np.random.RandomState(1).poisson(5, size=N)
 
     # plots the histogram for all the four columns
-    df.hist(bins=10)
+    df.hist(bins=10,  edgecolor='black')
     plt.show()
     
 if (__name__) == "__main__":
