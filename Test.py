@@ -39,11 +39,14 @@ def main():
     # set a sample size
     N = 5000
     
-    # rand_col_1 generates 5000 numbers between 0 and 1 having equal probability of occurrence
-    df['rand_col_1'] = np.random.RandomState(0).uniform(0, 1, size=N)
+    """
+    rand_col_4 Models the number of random events in a fixed time interval
+    generates 5000 numbers having a mean of 5
+    """
+    df['rand_col_4'] = np.random.RandomState(1).poisson(5, size=N)
 
     # plots the histogram for all the four columns
-    df.hist(bins=10)
+    df.hist(bins=10,  edgecolor='black')
     plt.show()
     
 if (__name__) == "__main__":
