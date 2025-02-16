@@ -2,12 +2,13 @@ import pandas as pd
 import numpy as np
 def main():
     
-    #creating_tensor()
+    creating_tensor()
     convert_3d_to_2d_array()
     
 def creating_tensor():
     tensor = np.random.randint(0, 10, size=(2,3,4))
     print(tensor)
+    print("\n")
     
 def convert_3d_to_2d_array():
     # Create a 3D NumPy array (2 blocks of 3×4 matrices)
