@@ -64,6 +64,28 @@ def matrix_operations():
     print(matrix_A.T)
     print("\n")
     
+    #Matrix Determinant
+    print("Determinant")
+    print(matrix_A)
+    print("\n")
+    print(np.linalg.det(matrix_A))  # Computes the determinant
+    print("\n")
+    
+    #Matrix Inversion
+    print("Inversion")
+    matrix_C = np.array([[1, 2], [3, 4]])
+    inverse_C = np.linalg.inv(matrix_C)
+    print(inverse_C)
+    print("\n")
+    
+    #Eigen Values & Eigen Vectors
+    print("Eigen Values & Eigen Vectors")
+    matrix_C = np.array([[1, 2], [3, 4]])
+    eigenvalues, eigenvectors = np.linalg.eig(matrix_C)
+    print("Eigenvalues:", eigenvalues)
+    print("\n")
+    print("Eigenvectors:\n", eigenvectors)
+    print("\n")
     
 if (__name__) == "__main__":
     main()
