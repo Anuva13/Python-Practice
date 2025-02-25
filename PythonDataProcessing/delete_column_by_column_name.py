@@ -22,7 +22,7 @@ def main():
     print(df)
     
     df.drop(['col_b', 'col_c'], axis=1, inplace=True)
-    assert df.empty, "Expecting empty dataframe"
+    assert not df.empty, "Expecting an empty dataframe"
     
 if __name__ == "__main__":
     main()
