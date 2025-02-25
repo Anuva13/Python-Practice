@@ -1,0 +1,11 @@
+Customer_ID,Age,Income_Level,Preferred_Store
+1,25,Low,Online
+2,40,High,In-Store
+3,35,Medium,Online
+4,50,High,In-Store
+5,29,Low,Online
+6,45,Medium,In-Store
+7,31,Low,Online
+8,55,High,In-Store
+9,37,Medium,Online
+10,42,High,In-Store
