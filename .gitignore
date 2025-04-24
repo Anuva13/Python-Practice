@@ -1,3 +1,5 @@
 .DS_Store
 myenv/*
 WeatherApp/Frontend/node_modules
+WeatherApp/Backend/.env
+WeatherApp/Frontend/.env

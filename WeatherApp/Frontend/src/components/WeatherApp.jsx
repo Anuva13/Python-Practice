@@ -6,7 +6,7 @@ const WeatherApp = () => {
 
   const fetchWeather = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/weather?city=${city}`);
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/weather?city=${city}`);
       if (!res.ok) throw new Error("Failed to fetch weather");
       const data = await res.json();
       setWeather(data);
@@ -28,12 +28,15 @@ const WeatherApp = () => {
         />
         <button onClick={fetchWeather} style={{ padding: '0.5rem 1rem' }}>Get Weather</button>
       </div>
-      {weather && (
+      {weather && !weather.error && (
         <div style={{ border: '1px solid #ccc', padding: '1rem', borderRadius: '8px' }}>
           <h2 style={{ fontSize: '20px', fontWeight: '600' }}>{weather.city}</h2>
           <p>Temperature: {weather.temperature}</p>
           <p>Condition: {weather.condition}</p>
         </div>
+      )}
+      {weather && weather.error && (
+        <p style={{ color: 'red' }}>{weather.error}</p>
       )}
     </div>
   );
