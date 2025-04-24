@@ -33,6 +33,7 @@ def get_weather():
             'temperature': f"{data['main']['temp']}°C",
             'condition': data['weather'][0]['description'].capitalize()
         }
+        print(data)
         return jsonify(weather)
     except Exception as e:
         return jsonify({'error': str(e)}), 500
