@@ -1,10 +1,7 @@
 import plotly.express as px
 import pandas as pd
-import plotly.io as pio
-from PIL import Image
-import tempfile
 
-# Define the task data with estimated time spent
+# Define the task data with estimated time spent for the roadmap
 task_data = {
     'Task': [
         'Designing basic functionality (area, perimeter, etc.)',
@@ -21,7 +18,11 @@ task_data = {
     'Finish': [
         '2025-04-05', '2025-04-03', '2025-04-02', '2025-04-03', '2025-04-06', '2025-04-04', '2025-04-07'
     ],
-    'Estimated Time Spent (hours)': [15, 10, 8, 6, 12, 15, 7]
+    'Estimated Time Spent (hours)': [15, 10, 8, 6, 12, 15, 7],
+    'Milestone': [
+        'Start of project', 'Core functionality design', 'Unit tests setup', 'Config setup', 
+        'Documentation review', 'Best practices research', 'Debugging'
+    ]
 }
 
 # Create a DataFrame from the task data
@@ -31,20 +32,17 @@ df = pd.DataFrame(task_data)
 df['Start'] = pd.to_datetime(df['Start'])
 df['Finish'] = pd.to_datetime(df['Finish'])
 
-# Create a list to hold the frames for the GIF
-frames = []
-num_frames = 10
-for i in range(1, num_frames + 1):
-    progress_df = df.copy()
-    progress_df["Finish"] = progress_df.apply(
-        lambda row: row["Start"] + (row["Finish"] - row["Start"]) * min(i / num_frames, 1), axis=1
-    )
-    fig = px.timeline(progress_df, x_start="Start", x_end="Finish", y="Task", color="Task")
-    fig.update_yaxes(autorange="reversed")
+# Plot the roadmap as a Gantt chart with milestones
+fig = px.timeline(df, x_start="Start", x_end="Finish", y="Task", color="Milestone", title="Project Roadmap")
+fig.update_yaxes(autorange="reversed")  # Reverse the y-axis so tasks appear top to bottom
 
-    with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as tmpfile:
-        pio.write_image(fig, tmpfile.name)
-        frames.append(Image.open(tmpfile.name))
+# Customize axis and layout
+fig.update_layout(
+    xaxis_title="Timeline",
+    yaxis_title="Tasks",
+    showlegend=True,
+    bargap=0.3  # Adjust the gap between bars
+)
 
-# Save the frames as a GIF
-frames[0].save("mensurapy_progress.gif", save_all=True, append_images=frames[1:], duration=500, loop=0)
+# Show the chart
+fig.show()
