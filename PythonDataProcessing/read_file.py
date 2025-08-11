@@ -2,6 +2,9 @@ def main():
     
     read()
     readfileblock()
+    capitalisefiletext()
+    removeemptyline()
+    readfileinmemory()
     
 def read():
     file = open("./ExampleCSV/I_Sample_txt_file.txt") # The open() function returns a file object which is assigned to the variable file.
@@ -13,7 +16,26 @@ def read():
 def readfileblock():
     with open("./ExampleCSV/I_Sample_txt_file.txt") as file:
         print(file.readline())
-
+        
+# learning to iterate with files
+def capitalisefiletext():
+    with open("./ExampleCSV/I_Sample_txt_file.txt") as file:
+        for line in file:
+            print(line.upper())
+            
+def removeemptyline():
+    with open("./ExampleCSV/I_Sample_txt_file.txt") as file:
+        for line in file:
+            print(line.strip().upper())
+            
+def readfileinmemory():
+    file = open("./ExampleCSV/I_Sample_txt_file.txt")
+    lines = file.readlines()
+    file.close()
+    # Here even when the file is closed the file content is in the list i.e. memory and can be used to process
+    lines.sort()
+    print(lines)
+            
 if __name__ == "__main__":
     main()
     
